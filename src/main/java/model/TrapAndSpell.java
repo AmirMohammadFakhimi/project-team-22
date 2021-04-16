@@ -1,11 +1,11 @@
 package model;
 
-public class TraoAndSpell {
+public class TrapAndSpell {
     protected Enum type;
     protected Enum kind;
     protected Enum limit;
 
-    public TraoAndSpell(Enum kind , Enum kind , Enum limit) {
+    public TrapAndSpell(Enum kind , Enum kind , Enum limit) {
         setKind(kind);
         setLimit(limit);
         setKind(kind);
