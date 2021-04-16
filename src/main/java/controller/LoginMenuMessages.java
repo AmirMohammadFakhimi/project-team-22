@@ -10,17 +10,17 @@ public enum LoginMenuMessages {
     UNMATCHED_USERNAME_AND_PASSWORD("Username and password didn’t match!"),
     INVALID_COMMAND("invalid command");
 
-    private String label;
+    private String message;
 
-    LoginMenuMessages(String label) {
-        this.label = label;
+    LoginMenuMessages(String message) {
+        this.message = message;
     }
 
     public static void setUsername(String username) {
-        LoginMenuMessages.USERNAME_EXISTS.label = "user with username " + username + " already exists";
+        LoginMenuMessages.USERNAME_EXISTS.message = "user with username " + username + " already exists";
     }
 
     public static void setNickname(String nickname) {
-        LoginMenuMessages.NICKNAME_EXISTS.label = "user with nickname " + nickname + " already exists";
+        LoginMenuMessages.NICKNAME_EXISTS.message = "user with nickname " + nickname + " already exists";
     }
 }

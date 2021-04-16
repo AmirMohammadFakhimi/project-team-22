@@ -8,9 +8,9 @@ public enum MainMenuMessages {
     INVALID_COMMAND("invalid command\n"),
     EMPTY("");
 
-    private final String label;
+    private final String message;
 
-    MainMenuMessages(String label) {
-        this.label = label;
+    MainMenuMessages(String message) {
+        this.message = message;
     }
 }
