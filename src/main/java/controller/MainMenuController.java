@@ -33,7 +33,7 @@ public class MainMenuController {
         if (menu.equalsIgnoreCase("Login")) {
             return MainMenuMessages.INVALID_NAVIGATION;
         } else if (menu.equalsIgnoreCase("Main")) {
-
+            return MainMenuMessages.INVALID_NAVIGATION;
         } else if (menu.equalsIgnoreCase("Duel")) {
 
         } else if (menu.equalsIgnoreCase("Deck")) {

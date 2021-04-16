@@ -3,10 +3,12 @@ package controller;
 import model.Player;
 import view.MainMenuView;
 
+import java.util.regex.Matcher;
+
 public class LoginMenuController {
     public static Enum findCommand(String command) {
 
-        if (command.startsWith("menu enter")) return LoginMenuMessages.ENTER_ANOTHER_MENU;
+        if (command.startsWith("menu enter")) return enterAMenu(command);
         else if (command.equals("menu exit")) System.exit(0);
         else if (command.equals("menu show-current")) return LoginMenuMessages.SHOW_MENU;
         else if (command.startsWith("user create")) {
@@ -18,6 +20,18 @@ public class LoginMenuController {
         return LoginMenuMessages.INVALID_COMMAND;
     }
 
+    private static Enum enterAMenu(String command) {
+        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|MAin|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
+        if (!matcher.find()) return ShopMenuMessages.INVALID_COMMAND;
+
+        String menu = matcher.group(1);
+        if (menu.equalsIgnoreCase("Login")) {
+            return LoginMenuMessages.INVALID_NAVIGATION;
+        }
+
+        return LoginMenuMessages.ENTER_ANOTHER_MENU;
+    }
+
     private static Enum checkCreateUser(String command) {
 //        user is same as player
 
@@ -26,7 +40,7 @@ public class LoginMenuController {
         String password;
         String nickname;
 
-        if (Player.isUsernameExist(username)) {
+        if (Player.getPlayerByUsername(username) != null) {
             LoginMenuMessages.setUsername(username);
             return LoginMenuMessages.USERNAME_EXISTS;
         }

@@ -40,13 +40,6 @@ public class Player {
 
     }
 
-    public static Boolean isUsernameExist(String username) {
-        for (Player player : allPlayers) {
-            if (player.username.equals(username)) return true;
-        }
-        return false;
-    }
-
     public static Boolean isNicknameExist(String nickname) {
         for (Player player : allPlayers) {
             if (player.nickname.equals(nickname)) return true;
