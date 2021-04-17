@@ -25,7 +25,7 @@ public class Player {
         sideDeck = new Deck();
         activatedDeck = null;
         score = 0;
-        money = 0;
+        money = 100000;
     }
 
     public Player(String username, String password, String nickname) {
