@@ -1,6 +1,8 @@
 package controller;
 
 import model.Player;
+import view.MainMenuView;
+import view.ShopMenuView;
 
 import java.util.regex.Matcher;
 
@@ -26,7 +28,7 @@ public class MainMenuController {
     }
 
     private Enum enterAMenu(String command) {
-        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|MAin|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
+        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
         if (!matcher.find()) return MainMenuMessages.INVALID_COMMAND;
 
         String menu = matcher.group(1);
@@ -35,15 +37,19 @@ public class MainMenuController {
         } else if (menu.equalsIgnoreCase("Main")) {
             return MainMenuMessages.INVALID_NAVIGATION;
         } else if (menu.equalsIgnoreCase("Duel")) {
-
+            return MainMenuMessages.INVALID_NAVIGATION;
         } else if (menu.equalsIgnoreCase("Deck")) {
-
+            DeckMenuView deckMenuView = new DeckMenuView(loggedInPlayer);
+            deckMenuView.deckMenuView();
         } else if (menu.equalsIgnoreCase("Scoreboard")) {
-
+            ScoreboardMenuView scoreboardMenuView = new ScoreboardMenuView(loggedInPlayer);
+            scoreboardMenuView.scoreboardMenuView();
         } else if (menu.equalsIgnoreCase("Profile")) {
-
+            ProfileMenuView profileMenuView = new ProfileMenuView(loggedInPlayer);
+            profileMenuView.profileMenuView();
         } else if (menu.equalsIgnoreCase("Shop")) {
-
+            ShopMenuView shopMenuView = new ShopMenuView(loggedInPlayer);
+            shopMenuView.shopMenuView();
         }
 
         return MainMenuMessages.EMPTY;

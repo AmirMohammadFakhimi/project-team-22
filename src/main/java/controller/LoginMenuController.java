@@ -21,7 +21,7 @@ public class LoginMenuController {
     }
 
     private static Enum enterAMenu(String command) {
-        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|MAin|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
+        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
         if (!matcher.find()) return ShopMenuMessages.INVALID_COMMAND;
 
         String menu = matcher.group(1);

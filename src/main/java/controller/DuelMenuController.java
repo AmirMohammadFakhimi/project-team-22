@@ -15,6 +15,10 @@ public class DuelMenuController {
         setPhase(phase);
     }
 
+    public static Player specifyTurnPlayer(Player firstPlayer, Player secondPlayer) {
+
+    }
+
     public void setTurnPlayer(Player turnPlayer) {
         this.turnPlayer = turnPlayer;
     }
