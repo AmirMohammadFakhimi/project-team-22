@@ -1,7 +1,6 @@
 package view;
 
 import controller.DuelMenuController;
-import controller.DuelMenuMessages;
 import controller.Utils;
 import model.Card;
 import model.Player;
