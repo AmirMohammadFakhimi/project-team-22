@@ -1,7 +1,6 @@
 package controller;
 
 import model.Player;
-import view.MainMenuView;
 import view.ShopMenuView;
 
 import java.util.regex.Matcher;
