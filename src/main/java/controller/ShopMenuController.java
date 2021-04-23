@@ -16,7 +16,7 @@ public class ShopMenuController {
         this.loggedInPlayer = loggedInPlayer;
     }
 
-    public Enum findCommand(String command) {
+    public ShopMenuMessages findCommand(String command) {
 
         if (command.startsWith("menu enter")) return enterAMenu(command);
         else if (command.equals("menu exit")) return ShopMenuMessages.EXIT_SHOP_MENU;
@@ -24,17 +24,17 @@ public class ShopMenuController {
         else if (command.startsWith("shop buy")) return buyACard(command);
         else if (command.equals("shop show --all")) return ShopMenuMessages.SHOW_ALL_CARDS;
 
-        return LoginMenuMessages.INVALID_COMMAND;
+        return ShopMenuMessages.INVALID_COMMAND;
     }
 
-    private Enum enterAMenu(String command) {
+    private ShopMenuMessages enterAMenu(String command) {
         Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
         if (!matcher.find()) return ShopMenuMessages.INVALID_COMMAND;
 
         return ShopMenuMessages.INVALID_NAVIGATION;
     }
 
-    private Enum buyACard(String command) {
+    private ShopMenuMessages buyACard(String command) {
         Matcher matcher = Utils.getMatcher("^shop buy ([A-Za-z ]+)$", command);
         if (!matcher.find()) return ShopMenuMessages.INVALID_COMMAND;
 

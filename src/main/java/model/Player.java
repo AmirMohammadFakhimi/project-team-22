@@ -11,6 +11,7 @@ public class Player {
 
     private ArrayList<Card> boughtCards;
     private ArrayList<Deck> allMainDecks;
+    private Board board;
     private Deck sideDeck;
     private Deck activatedDeck;
     private String username;
@@ -22,6 +23,7 @@ public class Player {
     {
         boughtCards = new ArrayList<>();
         allMainDecks = new ArrayList<>();
+        board = new Board();
         sideDeck = new Deck();
         activatedDeck = null;
         score = 0;

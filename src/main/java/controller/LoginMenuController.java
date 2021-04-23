@@ -6,7 +6,7 @@ import view.MainMenuView;
 import java.util.regex.Matcher;
 
 public class LoginMenuController {
-    public static Enum findCommand(String command) {
+    public static LoginMenuMessages findCommand(String command) {
 
         if (command.startsWith("menu enter")) return enterAMenu(command);
         else if (command.equals("menu exit")) System.exit(0);
@@ -20,7 +20,7 @@ public class LoginMenuController {
         return LoginMenuMessages.INVALID_COMMAND;
     }
 
-    private static Enum enterAMenu(String command) {
+    private static LoginMenuMessages enterAMenu(String command) {
         Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
         if (!matcher.find()) return ShopMenuMessages.INVALID_COMMAND;
 
@@ -32,7 +32,7 @@ public class LoginMenuController {
         return LoginMenuMessages.ENTER_ANOTHER_MENU;
     }
 
-    private static Enum checkCreateUser(String command) {
+    private static LoginMenuMessages checkCreateUser(String command) {
 //        user is same as player
 
 
@@ -57,7 +57,7 @@ public class LoginMenuController {
         new Player(username, password, nickname);
     }
 
-    private static Enum checkLoginUser(String command) {
+    private static LoginMenuMessages checkLoginUser(String command) {
 //        user is same as player
 
 
@@ -81,7 +81,7 @@ public class LoginMenuController {
         mainMenuView.mainMenuView();
     }
 
-    private static Enum checkLogoutUser(String command) {
+    private static LoginMenuMessages checkLogoutUser(String command) {
 //        user is same as player
 
 

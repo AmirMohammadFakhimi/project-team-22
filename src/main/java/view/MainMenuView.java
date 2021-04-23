@@ -18,7 +18,7 @@ public class MainMenuView {
         while (true) {
             String command = Utils.getScanner().nextLine().trim();
             MainMenuController mainMenuController = new MainMenuController(loggedInPlayer);
-            Enum result = mainMenuController.findCommand(command);
+            MainMenuMessages result = mainMenuController.findCommand(command);
 
             System.out.print(result);
 

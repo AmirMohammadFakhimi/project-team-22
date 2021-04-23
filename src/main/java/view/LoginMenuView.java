@@ -9,7 +9,7 @@ public class LoginMenuView {
         while (true) {
             String command = Utils.getScanner().nextLine().trim();
             LoginMenuController loginMenuController = new LoginMenuController();
-            Enum result = loginMenuController.findCommand(command);
+            LoginMenuMessages result = loginMenuController.findCommand(command);
 
             System.out.println(result);
 

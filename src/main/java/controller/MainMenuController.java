@@ -16,17 +16,17 @@ public class MainMenuController {
         this.loggedInPlayer = loggedInPlayer;
     }
 
-    public Enum findCommand(String command) {
+    public MainMenuMessages findCommand(String command) {
 
         if (command.startsWith("menu enter")) return enterAMenu(command);
         else if (command.equals("menu exit")) return MainMenuMessages.EXIT_MAIN_MENU;
         else if (command.equals("menu show-current")) return MainMenuMessages.SHOW_MENU;
         else if (command.equals("user logout")) return MainMenuMessages.USER_LOGGED_OUT;
 
-        return LoginMenuMessages.INVALID_COMMAND;
+        return MainMenuMessages.INVALID_COMMAND;
     }
 
-    private Enum enterAMenu(String command) {
+    private MainMenuMessages enterAMenu(String command) {
         Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
         if (!matcher.find()) return MainMenuMessages.INVALID_COMMAND;
 

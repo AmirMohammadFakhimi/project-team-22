@@ -23,7 +23,7 @@ public class ShopMenuView {
         while (true) {
             String command = Utils.getScanner().nextLine().trim();
             ShopMenuController shopMenuController = new ShopMenuController(loggedInPlayer);
-            Enum result = shopMenuController.findCommand(command);
+            ShopMenuMessages result = shopMenuController.findCommand(command);
 
             System.out.print(result);
 
