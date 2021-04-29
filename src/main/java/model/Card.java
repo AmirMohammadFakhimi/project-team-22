@@ -4,27 +4,36 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 public class Card {
-    protected static ArrayList<Card> ALL_CARDS = new ArrayList<Card>();
+    protected static ArrayList<Card> allCards = new ArrayList<>();
     protected String cardType;
     protected String name;
     protected String description;
     protected String upDown;
-
 
     public Card(String cardType, String name, String description, String upDown) {
         setCardType(cardType);
         setName(name);
         setDescription(description);
         setUpDown(upDown);
-        ALL_CARDS.add(this);
+        allCards.add(this);
     }
 
     public static ArrayList<Card> getAllCards() {
-        return ALL_CARDS;
+        return allCards;
     }
 
     public static void setAllCards(ArrayList<Card> allCards) {
-        ALL_CARDS = allCards;
+        Card.allCards = allCards;
+    }
+
+    public static Card getCardByName(String name) {
+        for (Card card : allCards) {
+            if (card.getName().equals(name)) return card;
+        }
+        return null;
+    }
+
+    public static TreeMap<String, String> getListOfCards() {
     }
 
     public String getDescription() {
@@ -63,16 +72,5 @@ public class Card {
 
     public void turnCard() {
         setUpDown("up");
-    }
-
-    public Card getCardByName(String name) {
-        for (int i = 0; i < ALL_CARDS.size(); i++) {
-            if (ALL_CARDS.get(i).getName().equals(name))
-                return ALL_CARDS.get(i);
-        }
-        return null;
-    }
-
-    public TreeMap<String, String> getListOfCards() {
     }
 }

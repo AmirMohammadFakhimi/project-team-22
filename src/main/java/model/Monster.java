@@ -1,13 +1,14 @@
 package model;
 
-public class Monster extends Card{
+public class Monster extends Card {
     protected int attackLevel;
-    protected int deffenseLevel;
+    protected int defenseLevel;
     protected Enum kindOfWarrior;
-    public Monster(String cardType, String name, String description, String upDown , int attackLevel , int deffenseLevel , Enum kindOfWarrior) {
+
+    public Monster(String cardType, String name, String description, String upDown, int attackLevel, int defenseLevel, Enum kindOfWarrior) {
         super(cardType, name, description, upDown);
         setAttackLevel(attackLevel);
-        setDeffenseLevel(deffenseLevel);
+        setDefenseLevel(defenseLevel);
         setKindOfWarrior(kindOfWarrior);
     }
 
@@ -19,12 +20,12 @@ public class Monster extends Card{
         this.attackLevel = attackLevel;
     }
 
-    public int getDeffenseLevel() {
-        return deffenseLevel;
+    public int getDefenseLevel() {
+        return defenseLevel;
     }
 
-    public void setDeffenseLevel(int deffenseLevel) {
-        this.deffenseLevel = deffenseLevel;
+    public void setDefenseLevel(int defenseLevel) {
+        this.defenseLevel = defenseLevel;
     }
 
     public Enum getKindOfWarrior() {
@@ -35,15 +36,15 @@ public class Monster extends Card{
         this.kindOfWarrior = kindOfWarrior;
     }
 
-    //public void attck(){}
+    //public void attack(){}
 
-    //public void deffense(){}
+    //public void defense(){}
 
     public void addAmountToAttack(int amount){
         this.attackLevel+=amount;
     }
 
-    public void addAmountToDeffense(int amount){
-        this.deffenseLevel+=amount;
+    public void addAmountToDefense(int amount){
+        this.defenseLevel +=amount;
     }
 }
