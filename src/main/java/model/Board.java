@@ -1,17 +1,21 @@
 package model;
 
+import model.cards.Card;
+import model.cards.MagicCard;
+import model.cards.MonsterCard;
+
 import java.util.ArrayList;
 
 public class Board {
-    private Monster[] monstersZone;
-    private SpellAndTrap[] spellsAndTrapsZone;
+    private MonsterCard[] monstersZone;
+    private MagicCard[] spellsAndTrapsZone;
     private ArrayList<Card> graveyard;
     private Deck deck;
-    private SpellAndTrap fieldZone;//TODO: maybe it should be from these classes --> Spell / fieldSpell
+    private MagicCard fieldZone;//TODO: maybe it should be from these classes --> Spell / fieldSpell
 
     {
-        monstersZone = new Monster[5];
-        spellsAndTrapsZone = new SpellAndTrap[5];
+        monstersZone = new MonsterCard[6];
+        spellsAndTrapsZone = new MagicCard[6];
         graveyard = new ArrayList<>();
     }
 

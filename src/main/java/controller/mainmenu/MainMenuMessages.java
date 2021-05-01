@@ -1,4 +1,4 @@
-package controller;
+package controller.mainmenu;
 
 public enum MainMenuMessages {
     INVALID_NAVIGATION("menu navigation is not possible\n"),
@@ -12,5 +12,9 @@ public enum MainMenuMessages {
 
     MainMenuMessages(String message) {
         this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

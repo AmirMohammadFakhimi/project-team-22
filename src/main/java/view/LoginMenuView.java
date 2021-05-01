@@ -1,8 +1,8 @@
 package view;
 
-import controller.LoginMenuController;
-import controller.LoginMenuMessages;
 import controller.Utils;
+import controller.loginmenu.LoginMenuController;
+import controller.loginmenu.LoginMenuMessages;
 
 public class LoginMenuView {
     public static void loginMenuView() {
@@ -11,7 +11,7 @@ public class LoginMenuView {
             LoginMenuController loginMenuController = new LoginMenuController();
             LoginMenuMessages result = loginMenuController.findCommand(command);
 
-            System.out.println(result);
+            System.out.println(result.getMessage());
 
             if (result.equals(LoginMenuMessages.USER_LOGGED_IN)) LoginMenuController.loginUser(command);
         }

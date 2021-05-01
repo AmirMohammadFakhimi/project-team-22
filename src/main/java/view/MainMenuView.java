@@ -1,6 +1,8 @@
 package view;
 
-import controller.*;
+import controller.Utils;
+import controller.mainmenu.MainMenuController;
+import controller.mainmenu.MainMenuMessages;
 import model.Player;
 
 public class MainMenuView {
@@ -20,7 +22,7 @@ public class MainMenuView {
             MainMenuController mainMenuController = new MainMenuController(loggedInPlayer);
             MainMenuMessages result = mainMenuController.findCommand(command);
 
-            System.out.print(result);
+            System.out.print(result.getMessage());
 
             if (result.equals(MainMenuMessages.EXIT_MAIN_MENU) ||
             result.equals(MainMenuMessages.USER_LOGGED_OUT)) break;

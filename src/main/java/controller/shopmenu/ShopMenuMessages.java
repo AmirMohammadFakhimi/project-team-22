@@ -1,4 +1,4 @@
-package controller;
+package controller.shopmenu;
 
 public enum ShopMenuMessages {
     INVALID_NAVIGATION("menu navigation is not possible\n"),
@@ -14,5 +14,9 @@ public enum ShopMenuMessages {
 
     ShopMenuMessages(String message) {
         this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

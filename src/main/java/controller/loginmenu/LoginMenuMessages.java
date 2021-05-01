@@ -1,4 +1,4 @@
-package controller;
+package controller.loginmenu;
 
 public enum LoginMenuMessages {
     ENTER_ANOTHER_MENU("please login first"),
@@ -23,5 +23,9 @@ public enum LoginMenuMessages {
 
     public static void setNickname(String nickname) {
         LoginMenuMessages.NICKNAME_EXISTS.message = "user with nickname " + nickname + " already exists";
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

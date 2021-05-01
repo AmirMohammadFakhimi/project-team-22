@@ -1,6 +1,6 @@
-package model;
+package model.cards;
 
-public enum AttributesOfMonsters {
+public enum AttributesOfMonsterCard {
     DARK,
     EARTH,
     FIRE,

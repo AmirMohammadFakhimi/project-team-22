@@ -1,9 +1,9 @@
 package view;
 
-import controller.DuelMenuController;
 import controller.Utils;
-import model.Card;
+import controller.duelmenu.DuelMenuController;
 import model.Player;
+import model.cards.Card;
 
 public class DuelMenuView {
     private Player turnPlayer;

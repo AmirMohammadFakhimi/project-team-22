@@ -1,5 +1,6 @@
-package controller;
+package controller.mainmenu;
 
+import controller.Utils;
 import model.Player;
 import view.ShopMenuView;
 
@@ -27,7 +28,7 @@ public class MainMenuController {
     }
 
     private MainMenuMessages enterAMenu(String command) {
-        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
+        Matcher matcher = Utils.getMatcher(MainMenuRegexes.ENTER_A_MENU.getRegex(), command);
         if (!matcher.find()) return MainMenuMessages.INVALID_COMMAND;
 
         String menu = matcher.group(1);

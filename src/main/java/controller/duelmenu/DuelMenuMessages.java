@@ -1,4 +1,4 @@
-package controller;
+package controller.duelmenu;
 
 public enum DuelMenuMessages {
 }

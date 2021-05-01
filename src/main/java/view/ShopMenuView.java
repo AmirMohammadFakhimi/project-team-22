@@ -1,10 +1,10 @@
 package view;
 
-import controller.ShopMenuController;
-import controller.ShopMenuMessages;
 import controller.Utils;
-import model.Card;
+import controller.shopmenu.ShopMenuController;
+import controller.shopmenu.ShopMenuMessages;
 import model.Player;
+import model.cards.Card;
 
 import java.util.TreeMap;
 
@@ -25,7 +25,7 @@ public class ShopMenuView {
             ShopMenuController shopMenuController = new ShopMenuController(loggedInPlayer);
             ShopMenuMessages result = shopMenuController.findCommand(command);
 
-            System.out.print(result);
+            System.out.print(result.getMessage());
 
             if (result.equals(ShopMenuMessages.EXIT_SHOP_MENU)) break;
             else if (result.equals(ShopMenuMessages.SHOW_ALL_CARDS)) showListOfCards();

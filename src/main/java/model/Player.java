@@ -1,5 +1,9 @@
 package model;
 
+import controller.Database;
+import controller.Utils;
+import model.cards.Card;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -11,7 +15,7 @@ public class Player {
 
     private ArrayList<Card> boughtCards;
     private ArrayList<Deck> allMainDecks;
-    private Board board;
+    private transient Board board;
     private Deck sideDeck;
     private Deck activatedDeck;
     private String username;
@@ -19,11 +23,11 @@ public class Player {
     private String nickname;
     private long score;
     private long money;
+    private transient int lifePoint = 8000;
 
     {
         boughtCards = new ArrayList<>();
         allMainDecks = new ArrayList<>();
-        board = new Board();
         sideDeck = new Deck();
         activatedDeck = null;
         score = 0;
@@ -35,11 +39,7 @@ public class Player {
         setPassword(password);
         setNickname(nickname);
         allPlayers.add(this);
-        addPlayerToDataBase(this);
-    }
-
-    private static void addPlayerToDataBase(Player player) {
-
+        Database.updatePlayerInformationInDatabase(this);
     }
 
     public static Boolean isNicknameExist(String nickname) {
@@ -155,5 +155,13 @@ public class Player {
 
     public void removeACard() {
 //        TODO: ???? but remember to add this card from boughtCards :)
+    }
+
+    public void decreaseLifePoint(int amount) {
+        this.lifePoint -= amount;
+    }
+
+    public void createBoard() {
+        board = new Board();
     }
 }

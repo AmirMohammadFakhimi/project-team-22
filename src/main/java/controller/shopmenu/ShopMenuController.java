@@ -1,7 +1,8 @@
-package controller;
+package controller.shopmenu;
 
-import model.Card;
+import controller.Utils;
 import model.Player;
+import model.cards.Card;
 
 import java.util.regex.Matcher;
 
@@ -28,14 +29,14 @@ public class ShopMenuController {
     }
 
     private ShopMenuMessages enterAMenu(String command) {
-        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
+        Matcher matcher = Utils.getMatcher(ShopMenuRegexes.ENTER_A_MENU.getRegex(), command);
         if (!matcher.find()) return ShopMenuMessages.INVALID_COMMAND;
 
         return ShopMenuMessages.INVALID_NAVIGATION;
     }
 
     private ShopMenuMessages buyACard(String command) {
-        Matcher matcher = Utils.getMatcher("^shop buy ([A-Za-z ]+)$", command);
+        Matcher matcher = Utils.getMatcher(ShopMenuRegexes.BUY_CARD.getRegex(), command);
         if (!matcher.find()) return ShopMenuMessages.INVALID_COMMAND;
 
         String cardName = matcher.group(1);
