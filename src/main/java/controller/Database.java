@@ -77,9 +77,9 @@ public class Database {
 
         File file = new File("src/database/players");
         FilenameFilter filenameFilter = (direction, name) -> name.endsWith(".json");
-        String[] playersName = file.list(filenameFilter);
+        String[] filesName = file.list(filenameFilter);
 
-        for (String fileName : playersName) {
+        for (String fileName : filesName) {
             try {
                 FileReader fileReader = new FileReader("src/database/players/" + fileName);
                 Player player = gson.fromJson(fileReader, Player.class);
