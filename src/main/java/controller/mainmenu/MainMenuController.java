@@ -2,6 +2,7 @@ package controller.mainmenu;
 
 import controller.Utils;
 import model.Player;
+import view.ImportExportMenuView;
 import view.ShopMenuView;
 
 import java.util.regex.Matcher;
@@ -23,6 +24,7 @@ public class MainMenuController {
         else if (command.equals("menu exit")) return MainMenuMessages.EXIT_MAIN_MENU;
         else if (command.equals("menu show-current")) return MainMenuMessages.SHOW_MENU;
         else if (command.equals("user logout")) return MainMenuMessages.USER_LOGGED_OUT;
+        else if (command.startsWith("duel")) return enterDuelMenu(command);
 
         return MainMenuMessages.INVALID_COMMAND;
     }
@@ -50,8 +52,15 @@ public class MainMenuController {
         } else if (menu.equalsIgnoreCase("Shop")) {
             ShopMenuView shopMenuView = new ShopMenuView(loggedInPlayer);
             shopMenuView.shopMenuView();
+        } else if (menu.equalsIgnoreCase("ImportExport")) {
+            ImportExportMenuView importExportMenuView = new ImportExportMenuView();
+            importExportMenuView.ImportExportMenuView();
         }
 
         return MainMenuMessages.EMPTY;
+    }
+
+    private MainMenuMessages enterDuelMenu(String command) {
+//        TODO: complete this function.
     }
 }

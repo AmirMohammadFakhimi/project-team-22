@@ -1,8 +1,9 @@
 package model;
 
 import controller.Database;
-import controller.Utils;
 import model.cards.Card;
+import model.cards.magiccard.MagicCard;
+import model.cards.monstercard.MonsterCard;
 
 import java.util.ArrayList;
 
@@ -97,6 +98,10 @@ public class Player {
         return money;
     }
 
+    public ArrayList<Card> getBoughtCards() {
+        return boughtCards;
+    }
+
     public void increaseScore(long score) {
         this.score += score;
     }
@@ -114,7 +119,11 @@ public class Player {
     }
 
     public void addCardToBoughtCards(Card card) {
-        this.boughtCards.add(card);
+        if (Card.isMonsterCard(card)) {
+            this.boughtCards.add(new MonsterCard((MonsterCard) card));
+        } else {
+            this.boughtCards.add(new MagicCard((MagicCard) card));
+        }
     }
 
     public void addMainDeck(String deckName) {

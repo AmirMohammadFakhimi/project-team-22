@@ -33,7 +33,7 @@ public class ShopMenuView {
     }
 
     private void showListOfCards() {
-        TreeMap<String, String> listOfCards = Card.getListOfCards;
+        TreeMap<String, Integer> listOfCards = Card.getListOfCards();
         for (String cardName : listOfCards.keySet()) {
             System.out.println(cardName + ": " + listOfCards.get(cardName));
         }

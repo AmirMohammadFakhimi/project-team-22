@@ -22,7 +22,7 @@ public class LoginMenuController {
     }
 
     private static LoginMenuMessages enterAMenu(String command) {
-        Matcher matcher = Utils.getMatcher("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$", command);
+        Matcher matcher = Utils.getMatcher(LoginMenuRegexes.ENTER_A_MENU.getRegex(), command);
         if (!matcher.find()) return LoginMenuMessages.INVALID_COMMAND;
 
         String menu = matcher.group(1);

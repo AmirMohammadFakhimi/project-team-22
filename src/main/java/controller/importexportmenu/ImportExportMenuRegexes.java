@@ -1,12 +1,13 @@
-package controller.shopmenu;
+package controller.importexportmenu;
 
-public enum ShopMenuRegexes {
+public enum ImportExportMenuRegexes {
     ENTER_A_MENU("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop|ImportExport) Menu$"),
-    BUY_CARD("^shop buy ([^\n]+)$");
+    IMPORT_CARD("^import card ([^\n]+)$"),
+    EXPORT_CARD("^export card ([^\n]+)$");
 
     private final String regex;
 
-    ShopMenuRegexes(String regex) {
+    ImportExportMenuRegexes(String regex) {
         this.regex = regex;
     }
 

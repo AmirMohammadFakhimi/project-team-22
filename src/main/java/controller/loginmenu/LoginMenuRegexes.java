@@ -1,6 +1,7 @@
 package controller.loginmenu;
 
 public enum LoginMenuRegexes {
+    ENTER_A_MENU("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop|ImportExport) Menu$"),
     CREATE_USER_FIRST_PATTERN("^user create --(?:username|U) (\\S+) --(?:nickname|N) (\\S+) --(?:password|P) (\\S+)$"),
     CREATE_USER_SECOND_PATTERN("^user create --(?:username|U) (\\S+) --(?:password|P) (\\S+) --(?:nickname|N) (\\S+)$"),
     CREATE_USER_THIRD_PATTERN("^user create --(?:nickname|N) (\\S+) --(?:username|U) (\\S+) --(?:password|P) (\\S+) $"),

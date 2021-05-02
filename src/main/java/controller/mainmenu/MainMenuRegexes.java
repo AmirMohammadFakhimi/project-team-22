@@ -1,7 +1,7 @@
 package controller.mainmenu;
 
 public enum MainMenuRegexes {
-    ENTER_A_MENU("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop) Menu$");
+    ENTER_A_MENU("^menu enter (?i)(Login|Main|Duel|Deck|Scoreboard|Profile|Shop|ImportExport) Menu$");
 
     private final String regex;
 

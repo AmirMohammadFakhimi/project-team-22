@@ -1,8 +1,8 @@
 package model;
 
 import model.cards.Card;
-import model.cards.MagicCard;
-import model.cards.MonsterCard;
+import model.cards.magiccard.MagicCard;
+import model.cards.monstercard.MonsterCard;
 
 import java.util.ArrayList;
 
