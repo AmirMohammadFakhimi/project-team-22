@@ -1,5 +1,6 @@
 package controller.shopmenu;
 
+import controller.Database;
 import controller.Utils;
 import model.Player;
 import model.cards.Card;
@@ -45,6 +46,7 @@ public class ShopMenuController {
         if (boughtCard.getPrice() > loggedInPlayer.getMoney()) return ShopMenuMessages.NOT_ENOUGH_MONEY;
 
         loggedInPlayer.addCardToBoughtCards(boughtCard);
+        Database.updatePlayerInformationInDatabase(loggedInPlayer);
         return ShopMenuMessages.EMPTY;
     }
 }
