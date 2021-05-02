@@ -79,11 +79,12 @@ public class Database {
         FilenameFilter filenameFilter = (direction, name) -> name.endsWith(".json");
         String[] playersName = file.list(filenameFilter);
 
-        for (String playerName : playersName) {
+        for (String fileName : playersName) {
             try {
-                FileReader fileReader = new FileReader("src/database/players/" + playerName + ".json");
+                FileReader fileReader = new FileReader("src/database/players/" + fileName);
                 Player player = gson.fromJson(fileReader, Player.class);
                 fileReader.close();
+                Player.addPlayerToAllPlayers(player);
                 addCardsToPlayer(player);
             } catch (Exception e) {
                 e.printStackTrace();

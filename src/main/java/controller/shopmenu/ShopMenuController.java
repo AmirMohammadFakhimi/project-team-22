@@ -43,8 +43,11 @@ public class ShopMenuController {
         String cardName = matcher.group(1);
         Card boughtCard = Card.getCardByName(cardName);
         if (boughtCard == null) return ShopMenuMessages.UNAVAILABLE_CARD;
-        if (boughtCard.getPrice() > loggedInPlayer.getMoney()) return ShopMenuMessages.NOT_ENOUGH_MONEY;
 
+        int boughtCardPrice = boughtCard.getPrice();
+        if (boughtCardPrice > loggedInPlayer.getMoney()) return ShopMenuMessages.NOT_ENOUGH_MONEY;
+
+        loggedInPlayer.decreaseMoney(boughtCardPrice);
         loggedInPlayer.addCardToBoughtCards(boughtCard);
         Database.updatePlayerInformationInDatabase(loggedInPlayer);
         return ShopMenuMessages.EMPTY;

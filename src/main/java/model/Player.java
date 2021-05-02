@@ -39,7 +39,7 @@ public class Player {
         setUsername(username);
         setPassword(password);
         setNickname(nickname);
-        allPlayers.add(this);
+        addPlayerToAllPlayers(this);
         Database.updatePlayerInformationInDatabase(this);
     }
 
@@ -64,7 +64,9 @@ public class Player {
         return null;
     }
 
-
+    public static void addPlayerToAllPlayers(Player player) {
+        allPlayers.add(player);
+    }
 
     public String getUsername() {
         return username;

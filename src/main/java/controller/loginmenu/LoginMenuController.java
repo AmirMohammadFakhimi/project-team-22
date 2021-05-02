@@ -97,7 +97,7 @@ public class LoginMenuController {
         }
 
 
-        if (!Player.isNicknameExist(username) || !Player.isPasswordCorrect(username, password)) {
+        if (!Player.isPasswordCorrect(username, password)) {
             return LoginMenuMessages.UNMATCHED_USERNAME_AND_PASSWORD;
         }
 
