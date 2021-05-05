@@ -9,7 +9,7 @@ public class Card {
     protected String name;
     protected String description;
     protected String upDown;
-
+    protected boolean isPowerUsed = false;
     public Card(String cardType, String name, String description, String upDown) {
         setCardType(cardType);
         setName(name);
@@ -17,6 +17,8 @@ public class Card {
         setUpDown(upDown);
         allCards.add(this);
     }
+
+
 
     public static ArrayList<Card> getAllCards() {
         return allCards;
@@ -38,6 +40,13 @@ public class Card {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setPowerUsed(boolean powerUsed) {
+        isPowerUsed = powerUsed;
+    }
+    public boolean getIsPowerUsed(){
+        return this.isPowerUsed;
     }
 
     public void setDescription(String description) {

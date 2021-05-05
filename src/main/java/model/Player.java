@@ -18,6 +18,7 @@ public class Player {
     private String nickname;
     private long score;
     private long money;
+    private int lifePoint;
 
     {
         boughtCards = new ArrayList<>();
@@ -38,6 +39,14 @@ public class Player {
 
     private static void addPlayerToDataBase(Player player) {
 
+    }
+
+    public void setLifePoint(int lifePoint) {
+        this.lifePoint = lifePoint;
+    }
+
+    public int getLifePoint() {
+        return lifePoint;
     }
 
     public static Boolean isNicknameExist(String nickname) {
@@ -113,6 +122,10 @@ public class Player {
 
     public void addCardToBoughtCards(Card card) {
         this.boughtCards.add(card);
+    }
+
+    public void addAmountToLifePoint(int amount){
+        this.lifePoint+=amount;
     }
 
     public void addMainDeck(String deckName) {
