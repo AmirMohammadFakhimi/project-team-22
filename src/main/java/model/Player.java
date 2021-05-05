@@ -100,6 +100,10 @@ public class Player {
         return money;
     }
 
+    public Deck getActivatedDeck() {
+        return activatedDeck;
+    }
+
     public ArrayList<Card> getBoughtCards() {
         return boughtCards;
     }
@@ -143,7 +147,7 @@ public class Player {
     public void deleteMainDeck(String deckName) {
         Deck mainDeck = getDeckByName(deckName);
         if (mainDeck != null) {
-            boughtCards.addAll(mainDeck.getCards());
+            boughtCards.addAll(mainDeck.getMainCards());
             allMainDecks.remove(mainDeck);
         }
     }

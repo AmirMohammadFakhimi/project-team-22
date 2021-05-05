@@ -18,11 +18,11 @@ public enum LoginMenuMessages {
     }
 
     public static void setUsername(String username) {
-        LoginMenuMessages.USERNAME_EXISTS.message = "user with username " + username + " already exists";
+        USERNAME_EXISTS.message = "user with username " + username + " already exists";
     }
 
     public static void setNickname(String nickname) {
-        LoginMenuMessages.NICKNAME_EXISTS.message = "user with nickname " + nickname + " already exists";
+        NICKNAME_EXISTS.message = "user with nickname " + nickname + " already exists";
     }
 
     public String getMessage() {

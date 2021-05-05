@@ -6,10 +6,11 @@ import java.util.ArrayList;
 
 public class Deck {
     private String name;
-    private ArrayList<Card> cards;
+    private ArrayList<Card> mainCards;
+    private ArrayList<Card> sideCards;
 
     {
-        cards = new ArrayList<>();
+        mainCards = new ArrayList<>();
     }
 
 //    for creating main deck
@@ -30,15 +31,15 @@ public class Deck {
         this.name = name;
     }
 
-    public ArrayList<Card> getCards() {
-        return cards;
+    public ArrayList<Card> getMainCards() {
+        return mainCards;
+    }
+
+    public ArrayList<Card> getSideCards() {
+        return sideCards;
     }
 
     public void addCard(Card card) {
-        cards.add(card);
-    }
-
-    public Integer getNumberOfCards() {
-        return cards.size();
+        mainCards.add(card);
     }
 }

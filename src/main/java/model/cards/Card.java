@@ -12,10 +12,10 @@ public class Card {
          allCards = new HashMap<>();
     }
 
-    protected String name;
-    protected transient String description;
-    protected transient CardTypes cardType;
-    protected transient int price;
+    protected final String name;
+    protected final transient String description;
+    protected final transient CardTypes cardType;
+    protected final transient int price;
 //    if this boolean equals "false" so we can conclude that card is "face down"
     protected transient Boolean isCardFaceUp;
 
@@ -24,10 +24,10 @@ public class Card {
     }
 
     public Card(String name, String description, CardTypes cardType, int price) {
-        setName(name);
-        setDescription(description);
-        setCardType(cardType);
-        setPrice(price);
+        this.name = name;
+        this.description = description;
+        this.cardType = cardType;
+        this.price = price;
     }
 
     public static Card getCardByName(String name) {
@@ -56,27 +56,11 @@ public class Card {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public CardTypes getCardType() {
         return cardType;
     }
 
-    public void setCardType(CardTypes cardType) {
-        this.cardType = cardType;
-    }
-
     public int getPrice() {
         return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 }

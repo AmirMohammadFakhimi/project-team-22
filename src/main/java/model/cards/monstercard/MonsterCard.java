@@ -4,20 +4,20 @@ import model.cards.Card;
 import model.cards.CardTypes;
 
 public class MonsterCard extends Card {
-    protected transient short level;
-    protected transient MonsterCardAttributes attribute;
-    protected transient String monsterType;
+    protected final transient short level;
+    protected final transient MonsterCardAttributes attribute;
+    protected final transient String monsterType;
     protected transient int attackPoints;
-    protected transient int defensePoints;
+    protected final transient int defensePoints;
 
     public MonsterCard(String name, short level, MonsterCardAttributes attribute, String monsterType, CardTypes cardType,
                        int attackPoints, int defensePoints, String description, int price) {
         super(name, description, cardType, price);
-        setLevel(level);
-        setAttribute(attribute);
-        setMonsterType(monsterType);
+        this.level = level;
+        this.attribute = attribute;
+        this.monsterType = monsterType;
         setAttackPoints(attackPoints);
-        setDefensePoints(defensePoints);
+        this.defensePoints = defensePoints;
         allCards.put(name, this);
     }
 
@@ -34,24 +34,12 @@ public class MonsterCard extends Card {
         return level;
     }
 
-    public void setLevel(short level) {
-        this.level = level;
-    }
-
     public MonsterCardAttributes getAttribute() {
         return attribute;
     }
 
-    public void setAttribute(MonsterCardAttributes attribute) {
-        this.attribute = attribute;
-    }
-
     public String getMonsterType() {
         return monsterType;
-    }
-
-    public void setMonsterType(String monsterType) {
-        this.monsterType = monsterType;
     }
 
     public int getAttackPoints() {
@@ -64,9 +52,5 @@ public class MonsterCard extends Card {
 
     public int getDefensePoints() {
         return defensePoints;
-    }
-
-    public void setDefensePoints(int defensePoints) {
-        this.defensePoints = defensePoints;
     }
 }

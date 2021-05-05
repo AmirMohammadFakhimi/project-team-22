@@ -7,9 +7,9 @@ import controller.shopmenu.ShopMenuMessages;
 
 public class ImportExportMenuView {
     public void ImportExportMenuView() {
+        ImportExportMenuController importExportMenuController = new ImportExportMenuController();
         while (true) {
             String command = Utils.getScanner().nextLine().trim();
-            ImportExportMenuController importExportMenuController = new ImportExportMenuController();
             ImportExportMenuMessages result = importExportMenuController.findCommand(command);
 
             System.out.print(result.getMessage());

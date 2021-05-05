@@ -17,9 +17,9 @@ public class MainMenuView {
     }
 
     public void mainMenuView() {
+        MainMenuController mainMenuController = new MainMenuController(loggedInPlayer);
         while (true) {
             String command = Utils.getScanner().nextLine().trim();
-            MainMenuController mainMenuController = new MainMenuController(loggedInPlayer);
             MainMenuMessages result = mainMenuController.findCommand(command);
 
             System.out.print(result.getMessage());
