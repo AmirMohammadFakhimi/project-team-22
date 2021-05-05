@@ -16,6 +16,29 @@ public class ProfileMenuController {
     }
 
     public Enum findCommand(String command) {
+        String[] split = command.split("\\s+");
+        if (split.length<2){
+            return ProfileMenuMessages.INVALID_COMMAND;
+        }
+        else if (split[1].equals("enter")){
+            return ProfileMenuMessages.CANT_NAVIGATE_MENU;
+        }
+        else if (split[1].equals("exit")){
+            return ProfileMenuMessages.EXIT_MENU;
+        }
+        else if (split[1].equals("show")){
+            return ProfileMenuMessages.PROFILE_MENU;
+        }
+        else if (split[2].equals("--nickname")){
+            return changeNickname(command);
+        }
+        else if (split[2].equals("--password")){
+            return changePassword(command);
+        }
+        else {
+            return ProfileMenuMessages.INVALID_COMMAND;
+
+        }
     }
 
     public Enum changeNickname(String command) {

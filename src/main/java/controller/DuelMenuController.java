@@ -1,6 +1,7 @@
 package controller;
 
 import model.Board;
+import model.Card;
 import model.Monster;
 import model.Player;
 
@@ -36,16 +37,16 @@ public class DuelMenuController {
     }
 
 
-    private Enum selectCard(String command, Board palyerBoard, Board opponentBoard) {
+    private Enum selectCard(String command, Board playerBoard, Board opponentBoard) {
         String[] split = command.split("\\s+");
         if (split[1].equals("--monster") && split[2].equals("--opponent")) {
-            return selectMonsterOpponentCard(command, palyerBoard, opponentBoard);
+            return selectMonsterOpponentCard(command, playerBoard, opponentBoard);
         } else if (split[1].equals("--monster") && !split[2].equals("--opponent")) {
-            return selectOwnMonsterCard(command, palyerBoard);
+            return selectOwnMonsterCard(command, playerBoard);
         } else if (split[1].equals("--spell") && split[2].equals("--opponent")) {
-            return selectOpponentSpellCard(command, palyerBoard, opponentBoard);
+            return selectOpponentSpellCard(command, playerBoard, opponentBoard);
         } else if (split[1].equals("--spell") && !split[2].equals("--opponent")) {
-            return selectOwnMagicCard(command, palyerBoard);
+            return selectOwnMagicCard(command, playerBoard);
         } else if (split[1].equals("--field") && !split[2].equals("--opponent")) {//???????????????
         } else if (split[1].equals("--field") && split[2].equals("--opponent")) {//???????????????
         } else if (split[1].equals("--hand")) {//??????????????????
@@ -182,7 +183,8 @@ public class DuelMenuController {
         if (matcher.find()) {
             int numberOfChosenCard = Integer.parseInt(matcher.group(1));
             if (checkAttackMonsterCard(attackingPlayerBoard, opponentPlayerBoard, numberOfChosenCard) == null) {
-
+                Monster attackingMonster = (Monster) attackingPlayerBoard.getSelectedOwnCard();
+                return attackingMonster.attack(attackingPlayer, opponentPlayer, attackingPlayerBoard, opponentPlayerBoard, numberOfChosenCard);
             }
             return checkAttackMonsterCard(attackingPlayerBoard, opponentPlayerBoard, numberOfChosenCard);
 
@@ -193,8 +195,8 @@ public class DuelMenuController {
     private Enum checkAttackMonsterCard(, Board attackingPlayerBoard, Board opponentPlayerBoard, int numberOfChosenCard) {
         if (attackingPlayerBoard.getSelectedOwnCard() == null)
             return DuelMenuMessages.NOT_SELECTED_CARD;
-        if (attackingPlayerBoard.getSelectedOwnCard() extends Monster)
-        return DuelMenuMessages.CANT_ATTACK_WITH_CARD;
+        if (attackingPlayerBoard.getSelectedOwnCard() instanceof Monster)
+            return DuelMenuMessages.CANT_ATTACK_WITH_CARD;
         //TODO check battle phase
         Monster card = (Monster) attackingPlayerBoard.getSelectedOwnCard();
         if (card.getAttacked())

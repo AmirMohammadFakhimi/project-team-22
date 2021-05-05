@@ -58,7 +58,7 @@ public class DuelMenuView {
     }
 
    private void showTrapAndSpellZone(Board board){
-       TraoAndSpell[] spellsAndTrapsZone = board.getSpellsAndTrapsZone()
+       TraoAndSpell[] spellsAndTrapsZone = board.getSpellsAndTrapsZone();
        spellsAndTrapsZone[5].print();
        spellsAndTrapsZone[3].print();
        spellsAndTrapsZone[1].print();
@@ -76,7 +76,7 @@ public class DuelMenuView {
     }
 
     private void showOpponentTrapAndSpellZone(Board board) {
-        TraoAndSpell[] spellsAndTrapsZone = board.getSpellsAndTrapsZone()
+        TraoAndSpell[] spellsAndTrapsZone = board.getSpellsAndTrapsZone();
         spellsAndTrapsZone[4].print();
         spellsAndTrapsZone[2].print();
         spellsAndTrapsZone[1].print();

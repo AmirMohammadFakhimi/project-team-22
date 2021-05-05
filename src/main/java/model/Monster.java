@@ -1,5 +1,7 @@
 package model;
 
+import controller.DuelMenuMessages;
+
 public class Monster extends Card implements SpecialMonstersFunction {
     protected int attackLevel;
     protected int defenseLevel;
@@ -37,36 +39,6 @@ public class Monster extends Card implements SpecialMonstersFunction {
     public void setKindOfWarrior(Enum kindOfWarrior) {
         this.kindOfWarrior = kindOfWarrior;
     }
-
-    public Enum attack(Player attackingPlayer, Player opponentPlayer, Board attackingPlayerBoard, Board opponentPlayerBoard, int numberToAttack) {
-        Monster attackingCard = (Monster) attackingPlayerBoard.getSelectedOwnCard();
-        Monster opponentCard = opponentPlayerBoard.getMonstersZone()[numberToAttack];
-        if (opponentCard.defense(attackingPlayer, opponentPlayer, attackingPlayerBoard, opponentPlayerBoard, attackingCard, opponentCard, numberToAttack) != null) {
-           if (opponentCard.print().equals("OO"))
-
-            return
-        } else
-            return opponentCard.defense(attackingPlayer, opponentPlayer, attackingPlayerBoard, opponentPlayerBoard, attackingCard, opponentCard, numberToAttack);
-    }
-
-    public Enum defense(Player attackingPlayer, Player opponentPlayer, Board attackingPlayerBoard, Board opponentPlayerBoard, Monster attackingCard, Monster opponentCard, int numberToAttack) {
-        if (this.getName().equals("Command knight")) {
-            commandKnightFunction(opponentPlayerBoard);
-        } else if (this.getName().equals("Yomi Ship")) {
-            return yomiShipFunction(attackingPlayerBoard, attackingCard, opponentCard);
-        } else if (this.getName().equals("Suijin")) {
-            return suijinFunction(attackingCard);
-        } else if (this.getName().equals("Marshmallon")) {
-            return marshmallonFunction(attackingPlayer);
-        } else if (this.getName().equals("Texchanger")) {
-            return texchangerFunction(opponentCard);
-        } else if (this.getName().equals("Exploder Dragon")) {
-            return exploderDragon(attackingPlayer, opponentPlayer, attackingPlayerBoard, opponentPlayerBoard, attackingCard, opponentCard, numberToAttack);
-        }
-        return null;
-    }
-
-
     public String print() {
 
         if (this.getUpDown().equals("down") && this.cardStatus.equals("defense"))
